@@ -1,17 +1,24 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
-import CategoryList from "./components/CategoryList";
-import ProductList from "./components/ProductList";
+import CategoryList from "./components/CategoryList/CategoryList";
+import ProductList from "./components/ProductList/ProductList";
+
+
+
+
+
 
 const App = () => {
+
+
   return (
     <Container>
       <Row>
         <Col id="category-side" xs="3">
-          <CategoryList />
+          <CategoryList title="Category Ldvdvdist" />
         </Col>
         <Col id="product-side" xs="9">
-          <ProductList />
+          <ProductList title="Product List" />
         </Col>
       </Row>
     </Container>
