@@ -10,7 +10,7 @@ import copies from "./api/coffees.json"
 
 const App = () => {
   
-  const [categories, setCategories] = useState(copies)
+
   const [currentCategory, setCurrentCategory] = useState("")
 
   const changeCategory=(category)=>{
@@ -22,10 +22,10 @@ const App = () => {
     <Container >
       <Row>
         <Col  id="category-side" xs="3">
-          <CategoryList data={copies} changeCategory={changeCategory} currentCategory={currentCategory} title="Category List" />
+          <CategoryList  changeCategory={changeCategory} currentCategory={currentCategory} products={copies}/>
         </Col>
         <Col id="product-side" xs="9">
-          <ProductList currentCategory={currentCategory} title="Product List" data={copies} />
+          <ProductList currentCategory={currentCategory} title="Product List" products={copies} />
         </Col>
       </Row>
     </Container>
