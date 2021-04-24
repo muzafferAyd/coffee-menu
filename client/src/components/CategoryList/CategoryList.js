@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
-import copies from "../../api/coffees.json"
+import React  from "react";
 import { ListGroup, ListGroupItem, Input } from "reactstrap";
 
-
 const CategoryList = (props) => {
-  const [categories, setCategories] = useState(copies)
 
+
+  const filterList = [...props.products];
+  const filteredList = filterList.filter(
+    (val, index, self) =>
+      index === self.findIndex((t) => t.category === val.category)
+  );
 
   return (
     <div>
@@ -18,14 +21,16 @@ const CategoryList = (props) => {
 
       <ListGroup>
         <ListGroupItem>All Coffees</ListGroupItem>
-        {categories
-          .filter(
-            (val, index, self) =>
-              index === self.findIndex((t) => t.category === val.category)
-          )
-          .map((item) => (
-            <ListGroupItem onClick={()=>{props.changeCategory(item.category)}} key={item.id}>{item.category}</ListGroupItem>
-          ))}
+        {filteredList.map((item) => (
+          <ListGroupItem
+            onClick={() => {
+              props.changeCategory(item.category);
+            }}
+            key={item.id}
+          >
+            {item.category}
+          </ListGroupItem>
+        ))}
       </ListGroup>
     </div>
   );
