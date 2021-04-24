@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
-
+import copies from "../../api/coffees.json"
 import { ListGroup, ListGroupItem, Input } from "reactstrap";
-import jsonData from "../../api/coffees.json";
+
 
 const CategoryList = (props) => {
+  const [categories, setCategories] = useState(copies)
+
+
   return (
     <div>
       <Input
@@ -15,13 +18,13 @@ const CategoryList = (props) => {
 
       <ListGroup>
         <ListGroupItem>All Coffees</ListGroupItem>
-        {jsonData
+        {categories
           .filter(
             (val, index, self) =>
               index === self.findIndex((t) => t.category === val.category)
           )
           .map((item) => (
-            <ListGroupItem key={item.id}>{item.category}</ListGroupItem>
+            <ListGroupItem onClick={()=>{props.changeCategory(item.category)}} key={item.id}>{item.category}</ListGroupItem>
           ))}
       </ListGroup>
     </div>

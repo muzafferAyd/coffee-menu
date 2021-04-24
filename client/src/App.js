@@ -1,24 +1,31 @@
-import React from "react";
+import React,  {useState} from "react";
 import { Container, Row, Col } from "reactstrap";
 import CategoryList from "./components/CategoryList/CategoryList";
 import ProductList from "./components/ProductList/ProductList";
-
+import copies from "./api/coffees.json"
 
 
 
 
 
 const App = () => {
+  
+  const [categories, setCategories] = useState(copies)
+  const [currentCategory, setCurrentCategory] = useState("")
 
+  const changeCategory=(category)=>{
+    setCurrentCategory({currentCategory})
+    console.log(category)
+  }
 
   return (
-    <Container>
+    <Container >
       <Row>
-        <Col id="category-side" xs="3">
-          <CategoryList title="Category Ldvdvdist" />
+        <Col  id="category-side" xs="3">
+          <CategoryList data={copies} changeCategory={changeCategory} currentCategory={currentCategory} title="Category List" />
         </Col>
         <Col id="product-side" xs="9">
-          <ProductList title="Product List" />
+          <ProductList currentCategory={currentCategory} title="Product List" data={copies} />
         </Col>
       </Row>
     </Container>
