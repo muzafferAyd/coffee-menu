@@ -180,5 +180,12 @@
     "ingredients": ["Coffee", "Sugar", "Lemon", "Rum*"],
     "category": "iced", 
     "id": 26
-    }
+    },
+    {
+        "title": "Buzlu Muzlu süt",
+        "description": "Mazagran coffee is a cross between iced coffee, tea and your favorite rum drink. It typically consists of espresso, lemon, sugar and (sometimes) rum.",
+        "ingredients": ["Banana", "Sugar", "Milk"],
+        "category": "yeni lezzet", 
+        "id": 27
+        }
 ]
