@@ -49,7 +49,7 @@ const App = () => {
   return (
     <Container id="container">
       <div id="emptyNav"/>
-      <Row>
+      <Row >
         <Col id="category-side" xs="3">
           <CategoryList
             changeCategory={changeCategory}

@@ -4,6 +4,10 @@
     font-family: 'myProFont' ;
     src: url('../../assets/fonts/exo-bold.woff2');
 }
+@font-face {
+    font-family: 'myCatFont' ;
+    src: url('../../assets/fonts/roboto-regular.woff2');
+}
 
 .card {
     font-family: 'myProFont';
@@ -12,6 +16,12 @@
 }
 
 #desc{
-    font-weight: lighter ;
+    font-family: 'myCatFont';
+}
+
+#ingre{
+
+    font-family: 'myCatFont';
+    font-weight: normal;
 }
 

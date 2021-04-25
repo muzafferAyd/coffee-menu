@@ -10,7 +10,7 @@ const ProductList = (props) => {
           <CardBody key={product.id}>
             <CardTitle tag="h4">{product.title}</CardTitle>
             <CardText tag="h5" id='desc'>{product.description}</CardText>
-            <CardSubtitle tag="h6" className="mb-2 text-muted">
+            <CardSubtitle tag="h6"id="ingre" className="mb-2 text-muted">
               Ingredients: {product.ingredients}
             </CardSubtitle>
           </CardBody>
