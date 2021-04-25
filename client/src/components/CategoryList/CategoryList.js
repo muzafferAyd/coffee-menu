@@ -23,7 +23,7 @@ const CategoryList = (props) => {
 
       <ListGroup>
         <h2>{props.search}</h2>
-        <ListGroupItem onClick={() => props.searchCoffe()}>
+        <ListGroupItem onClick={() =>props.changeCategory()}>
           All Coffees
         </ListGroupItem>
         {filteredList.map((item) => (

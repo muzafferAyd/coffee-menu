@@ -5,43 +5,45 @@ import ProductList from "./components/ProductList/ProductList";
 import copies from "./api/coffees.json";
 
 const App = () => {
+  const allproduct = [...copies];
   const [products, setProducts] = useState(copies);
   const [currentCategory, setCurrentCategory] = useState("");
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    getFilteregProducts();
+    const getFilteredProducts = () => {
+      const res = copies.filter(
+        (product) => product.category === currentCategory
+      );
+      setProducts(currentCategory ? res : products);
+    };
+
+    getFilteredProducts();
+  }, [currentCategory]);
+
+  useEffect(() => {
+    const searchCoffee = () => {
+      const searched = copies.filter((e) =>
+        e.title.toLowerCase().includes(search.toLowerCase())
+      );
+      setProducts(search ? searched : products);
+    };
+
     searchCoffee();
-  }, [currentCategory, search]);
+  }, [search]);
 
-  const getFilteregProducts = () => {
-    const res = copies.filter(
-      (product) => product.category === currentCategory
-    );
-    setProducts(currentCategory ? res : products);
-  };
-
-  const searchCoffee = () => {
-    const searched = copies.filter(
-      (e) => e.title.toLowerCase().includes(search.toLowerCase())
-    );
-    setProducts(search ? searched : products);
+  const getAllCoffees = () => {
+    setProducts(allproduct);
   };
 
   const changeCategory = (category) => {
     setCurrentCategory(category);
+    getAllCoffees();
   };
-
-
 
   const handleSetSearch = (e) => {
-    console.log(e.target.value);
-    console.log("TEST");
-
     setSearch(e.target.value);
   };
-
-
 
   return (
     <Container>
@@ -53,6 +55,7 @@ const App = () => {
             products={products}
             title="Category List"
             setSearch={handleSetSearch}
+            setProducts={setProducts}
             search={search}
           />
         </Col>
