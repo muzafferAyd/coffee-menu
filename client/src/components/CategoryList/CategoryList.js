@@ -22,16 +22,16 @@ const CategoryList = (props) => {
       />
 
       <ListGroup  class="list-group" >
-        <ListGroupItem  onClick={() =>props.changeCategory()}>
+        <ListGroupItem class="sub-group"  onClick={() =>props.changeCategory()}>
           All Coffees
         </ListGroupItem >
         {filteredList.map((item) => (
-          <ListGroupItem 
+          <ListGroupItem class="sub-group"
             onClick={() => props.changeCategory(item.category)}
             key={item.id}
             active = {item.category===props.currentCategory?true:false}
           >
-            {item.category}
+            {item.category }
           </ListGroupItem>
         ))}
       </ListGroup>

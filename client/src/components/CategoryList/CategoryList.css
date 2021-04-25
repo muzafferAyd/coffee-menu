@@ -1,6 +1,22 @@
 
 
+@font-face {
+    font-family: 'myCatFont' ;
+    src: url('../../assets/fonts/roboto-regular.woff2');
+}
+
 #exampleSearch {
     border-radius: 10px;
     height: 50px;
+    margin: px 0 0 0;
 }
+
+.list-group{
+    margin: 10px;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-family: 'myCatFont';
+    
+}
+
+

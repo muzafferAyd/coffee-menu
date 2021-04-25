@@ -1,0 +1,17 @@
+
+
+@font-face {
+    font-family: 'myProFont' ;
+    src: url('../../assets/fonts/exo-bold.woff2');
+}
+
+.card {
+    font-family: 'myProFont';
+    font-size: larger;
+   
+}
+
+#desc{
+    font-weight: lighter ;
+}
+
