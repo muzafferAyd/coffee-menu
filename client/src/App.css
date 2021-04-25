@@ -3,7 +3,47 @@
     padding: 0;
 }
 
+.container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 #emptyNav{
     height: 20px;
 }
+
+
+#category-side{
+    border-right: 2px solid gray;
+    min-width: 200px;
+}
+
+#product-side{
+    min-width: 400px
+}
+
+
+@media only screen and (max-width: 400px) {
+    #category-side{
+        border-right: 2px solid gray;
+        float: left;
+        display: block;
+        min-width: 600px;
+    }
+    
+  }
+
+
+
+@media only screen and (max-width: 800px) {
+    #category-side {
+        border-right: none;
+        float: left;
+        
+    }
+    #product-side{
+        border-top: 2px solid gray;
+        min-width: 600px;
+    }
+  }
 
