@@ -7,6 +7,8 @@ import copies from "./api/coffees.json";
 const App = () => {
   const [products, setProducts] = useState(copies);
   const [currentCategory, setCurrentCategory] = useState("");
+  const [search, setSearch] = useState("");
+
 
   useEffect(() => {
     getFilteregProducts();
@@ -20,9 +22,35 @@ const App = () => {
     setProducts(currentCategory ? res : products);
   };
 
+  // const searchCoffe = () => {
+  //   copies.filter((e) => {
+  //     e.title.toLowerCase().includes(search.toLowerCase());
+  //     console.log(e.title, "search", search);
+  //   });
+  // };
+
+
+
   const changeCategory = (category) => {
     setCurrentCategory(category);
   };
+
+  // const handleChange = (value)=>{
+  //   setSearch(value)
+  //   console.log(search)
+  // }
+
+  const handleSetSearch = e => {
+    console.log(e.target.value);
+    console.log("TEST");
+
+    setSearch(e.target.value);
+  };
+
+
+  // const searchFunc = ()=>{
+  //   setSearch(e.target.value)
+  // }
 
   return (
     <Container>
@@ -33,12 +61,15 @@ const App = () => {
             currentCategory={currentCategory}
             products={products}
             title="Category List"
+            setSearch={handleSetSearch}
+            search={search}
           />
         </Col>
         <Col id="product-side" xs="9">
           <ProductList
             currentCategory={currentCategory}
             changeCategory={changeCategory}
+
             products={products}
             title="Coffes List"
           />
