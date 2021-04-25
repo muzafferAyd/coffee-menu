@@ -1,6 +1,7 @@
 import React from "react";
 import { ListGroup, ListGroupItem, Input } from "reactstrap";
 import copies from "../../api/coffees.json";
+import "./CategoryList.css"
 
 const CategoryList = (props) => {
   const filterList = [...copies];
@@ -11,7 +12,6 @@ const CategoryList = (props) => {
 
   return (
     <div>
-      <h2>{props.title}</h2>
       <Input
         type="search"
         name="search"
@@ -21,21 +21,20 @@ const CategoryList = (props) => {
         onChange={(e)=>props.setSearch(e)}
       />
 
-      <ListGroup>
-        <h2>{props.search}</h2>
-        <ListGroupItem onClick={() =>props.changeCategory()}>
+      <ListGroup  class="list-group" >
+        <ListGroupItem  onClick={() =>props.changeCategory()}>
           All Coffees
-        </ListGroupItem>
+        </ListGroupItem >
         {filteredList.map((item) => (
-          <ListGroupItem
+          <ListGroupItem 
             onClick={() => props.changeCategory(item.category)}
             key={item.id}
+            active = {item.category===props.currentCategory?true:false}
           >
             {item.category}
           </ListGroupItem>
         ))}
       </ListGroup>
-      <h2>{props.currentCategory}</h2>
     </div>
   );
 };

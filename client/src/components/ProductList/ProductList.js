@@ -4,9 +4,6 @@ import { Card, CardText, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 const ProductList = (props) => {
   return (
     <div>
-      <h2>
-        {props.title} - {props.currentCategory}
-      </h2>
       <Card>
         {props.products.map((product) => (
           <CardBody key={product.id}>

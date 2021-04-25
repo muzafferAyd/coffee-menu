@@ -3,6 +3,7 @@ import { Container, Row, Col } from "reactstrap";
 import CategoryList from "./components/CategoryList/CategoryList";
 import ProductList from "./components/ProductList/ProductList";
 import copies from "./api/coffees.json";
+import "./App.css"
 
 const App = () => {
   const allproduct = [...copies];
@@ -46,7 +47,8 @@ const App = () => {
   };
 
   return (
-    <Container>
+    <Container id="container">
+      <div id="emptyNav"/>
       <Row>
         <Col id="category-side" xs="3">
           <CategoryList
