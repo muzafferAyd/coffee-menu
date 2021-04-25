@@ -10,8 +10,7 @@ const CategoryList = (props) => {
     (val, index, self) =>
       index === self.findIndex((t) => t.category === val.category)
   );
-console.log("category: ",props)
-console.log("filter: ",filterList,"filter: ", filteredList)
+
 
   return (
     <div>
