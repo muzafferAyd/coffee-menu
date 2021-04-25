@@ -8,20 +8,20 @@ const App = () => {
   const [products, setProducts] = useState(copies);
   const [currentCategory, setCurrentCategory] = useState("");
 
-useEffect(()=>{
-  getFilteregProducts();
-})
+  useEffect(() => {
+    getFilteregProducts();
+  }, [currentCategory]);
 
   const getFilteregProducts = () => {
     // var result=jsonObject.filter(obj=> obj.studentName == "David");
-    const res = products.filter((product) => 
-      product.category === currentCategory);
-      setProducts(currentCategory? res: products)
+    const res = copies.filter(
+      (product) => product.category === currentCategory
+    );
+    setProducts(currentCategory ? res : products);
   };
 
   const changeCategory = (category) => {
     setCurrentCategory(category);
- 
   };
 
   return (
