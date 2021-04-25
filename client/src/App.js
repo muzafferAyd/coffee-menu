@@ -9,38 +9,32 @@ const App = () => {
   const [currentCategory, setCurrentCategory] = useState("");
   const [search, setSearch] = useState("");
 
-
   useEffect(() => {
     getFilteregProducts();
-  }, [currentCategory]);
+    searchCoffee();
+  }, [currentCategory, search]);
 
   const getFilteregProducts = () => {
-    // var result=jsonObject.filter(obj=> obj.studentName == "David");
     const res = copies.filter(
       (product) => product.category === currentCategory
     );
     setProducts(currentCategory ? res : products);
   };
 
-  // const searchCoffe = () => {
-  //   copies.filter((e) => {
-  //     e.title.toLowerCase().includes(search.toLowerCase());
-  //     console.log(e.title, "search", search);
-  //   });
-  // };
-
-
+  const searchCoffee = () => {
+    const searched = copies.filter(
+      (e) => e.title.toLowerCase().includes(search.toLowerCase())
+    );
+    setProducts(search ? searched : products);
+  };
 
   const changeCategory = (category) => {
     setCurrentCategory(category);
   };
 
-  // const handleChange = (value)=>{
-  //   setSearch(value)
-  //   console.log(search)
-  // }
 
-  const handleSetSearch = e => {
+
+  const handleSetSearch = (e) => {
     console.log(e.target.value);
     console.log("TEST");
 
@@ -48,9 +42,6 @@ const App = () => {
   };
 
 
-  // const searchFunc = ()=>{
-  //   setSearch(e.target.value)
-  // }
 
   return (
     <Container>
@@ -69,7 +60,6 @@ const App = () => {
           <ProductList
             currentCategory={currentCategory}
             changeCategory={changeCategory}
-
             products={products}
             title="Coffes List"
           />

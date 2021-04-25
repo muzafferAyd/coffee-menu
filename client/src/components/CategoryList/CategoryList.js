@@ -17,10 +17,15 @@ const CategoryList = (props) => {
         name="search"
         id="exampleSearch"
         placeholder="Search"
+        value={props.search}
+        onChange={(e)=>props.setSearch(e)}
       />
 
       <ListGroup>
-        <ListGroupItem>All Coffees</ListGroupItem>
+        <h2>{props.search}</h2>
+        <ListGroupItem onClick={() => props.searchCoffe()}>
+          All Coffees
+        </ListGroupItem>
         {filteredList.map((item) => (
           <ListGroupItem
             onClick={() => props.changeCategory(item.category)}
